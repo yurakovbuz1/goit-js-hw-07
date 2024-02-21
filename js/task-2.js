@@ -28,13 +28,11 @@ const images = [
   },
 ];
 
-images.forEach(image => {
-  const galleryImage = document.createElement("img")
-  galleryImage.setAttribute("src", image.url)
-  galleryImage.setAttribute("alt", image.alt)
-  const galleryItem = document.createElement("li");
-  const galleryElem = document.querySelector("ul");
+let html = '';
 
-  galleryItem.append(galleryImage);
-  galleryElem.append(galleryItem);
-})
+images.forEach(image => {
+  html += `<li><img src="${image.url}" alt="${image.alt}"></li>`;
+});
+
+const galleryElem = document.querySelector("ul");
+galleryElem.innerHTML = html;
