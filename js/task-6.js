@@ -9,7 +9,6 @@ const inputElem = document.querySelector("input");
 const destroyElem = document.querySelector("[data-destroy]");
 const createElem = document.querySelector("[data-create]");
 const boxesElem = document.querySelector("#boxes");
-let isFirst = true;
 
 destroyElem.addEventListener("click", onButtonDestroy);
 createElem.addEventListener("click", onButtonCreate);
@@ -23,6 +22,8 @@ function onButtonCreate(e) {
 }
 
 function createBoxes(amount) {
+  onButtonDestroy();
+  let isFirst = true;
   let width = 30;
   let height = 30;
   for (let i = 0; i < amount; i++) { 
@@ -46,6 +47,4 @@ function createBoxes(amount) {
 
 function onButtonDestroy() {
   boxesElem.textContent = "";
-  width = 30;
-  height = 30;
 }
